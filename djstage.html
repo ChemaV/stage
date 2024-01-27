@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="animacion.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-camera position="0.45 5 28" camera="" rotation="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-camera>
+
+      <a-light
+        type="ambient"
+        light="color: #7CBF71"
+        position="-0.09586 6.43611 -12.84602"
+      >
+      </a-light>
+
+      <a-text text="anchor: align; width: 5; value: TONIGHT:  Diva Pavlalaguna; color: #e5d99e; height: 0.01" value="TONIGHT:  Diva Pavlalaguna" text="" position="7 20 0" scale="4 4 4"></a-text>
+
+      <a-entity
+        class="stage"
+        position="0 0 0"
+        gltf-model="assets/ImageToStl.com_concert stage.glb"
+      >
+      </a-entity>
+
+      <a-entity
+        class="lamp"
+        position="-11.57 2.56 0"
+        gltf-model="assets/lamp.glb"
+        scale="1.4 1.4 1.4"
+      >
+      </a-entity>
+
+      <a-entity
+        class="microphone"
+        position="0.43 2.4 2"
+        gltf-model="assets/broadcast_microphone.glb"
+        scale="0.015 0.015 0.015"
+      >
+      </a-entity>
+
+      <a-entity
+        class="diva"
+        position="0.43 2.4 14"
+        scale="0.8 0.8 0.8"
+        gltf-model="assets/diva_plavalagoona.glb"
+        sound="src: url(sounds/The Diva Dance - Éric Serra.mp3); autoplay: true"
+      >
+      </a-entity>
+
+      <a-entity
+        class="moon"
+        scale="0.02 0.02 0.02"
+        position="0.63 15 -20"
+        gltf-model="https://cdn.glitch.global/feb1a498-6e82-4cbc-88ad-1aa92994aa26/Moon_1_3474.glb?v=1705949402486"
+        animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
+      >
+      </a-entity>
+
+      <a-entity
+        class="stars"
+        scale="1 1 1"
+        position="0.63 15 -20"
+        gltf-model="assets/stars_minecraft.glb"
+        animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
+      ></a-entity>
+
+      <a-sky color="#0A0640"></a-sky>
+    </a-scene>
+  </body>
+</html>
