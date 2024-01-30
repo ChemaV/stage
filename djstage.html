@@ -2,20 +2,40 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="animacion.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-camera position="0.45 5 28" camera="" rotation="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-camera>
+      <a-camera
+        position="0.45 5 26"
+        camera=""
+        rotation=""
+        look-controls=""
+        wasd-controls=""
+        data-aframe-inspector-original-camera=""
+      ></a-camera>
 
       <a-light
-        type="ambient"
-        light="color: #7CBF71"
-        position="-0.09586 6.43611 -12.84602"
+        light="intensity: 5; type: point; color: #4fd93a"
+        position="0.61109 -3.53886 -14.85801"
       >
       </a-light>
 
-      <a-text text="anchor: align; width: 5; value: TONIGHT:  Diva Pavlalaguna; color: #e5d99e; height: 0.01" value="TONIGHT:  Diva Pavlalaguna" text="" position="7 20 0" scale="4 4 4"></a-text>
+      <a-light
+        intensity="6"
+        type="point"
+        light="intensity: 1; color: #ffffff"
+        position="-13.77122 14.51167 30.02813"
+        rotation="-4.42 -2.21 -6.940000000000001"
+      >
+      </a-light>
+
+      <a-text
+        text="anchor: align; width: 5; value: TONIGHT:  Diva Plavalaguna; color: #e5d99e; height: 0.01"
+        value="TONIGHT:  Diva Plavalaguna"
+        text=""
+        position="7 20 0"
+        scale="4 4 4"
+      ></a-text>
 
       <a-entity
         class="stage"
