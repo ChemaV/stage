@@ -5,6 +5,7 @@
   </head>
   <body>
     <a-scene>
+      <div id="info">Description</div>
       <a-camera
         position="0.45 5 26"
         camera=""
@@ -13,29 +14,6 @@
         wasd-controls=""
         data-aframe-inspector-original-camera=""
       ></a-camera>
-
-      <a-light
-        light="intensity: 5; type: point; color: #4fd93a"
-        position="0.61109 -3.53886 -14.85801"
-      >
-      </a-light>
-
-      <a-light
-        intensity="6"
-        type="point"
-        light="intensity: 1; color: #ffffff"
-        position="-13.77122 14.51167 30.02813"
-        rotation="-4.42 -2.21 -6.940000000000001"
-      >
-      </a-light>
-
-      <a-text
-        text="anchor: align; width: 5; value: TONIGHT:  Diva Plavalaguna; color: #e5d99e; height: 0.01"
-        value="TONIGHT:  Diva Plavalaguna"
-        text=""
-        position="7 20 0"
-        scale="4 4 4"
-      ></a-text>
 
       <a-entity
         class="stage"
@@ -75,6 +53,7 @@
         position="0.63 15 -20"
         gltf-model="https://cdn.glitch.global/feb1a498-6e82-4cbc-88ad-1aa92994aa26/Moon_1_3474.glb?v=1705949402486"
         animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
+        onclick="changeLightColor()"
       >
       </a-entity>
 
@@ -87,6 +66,83 @@
       ></a-entity>
 
       <a-sky color="#0A0640"></a-sky>
+
+      <a-light
+        intensity="6"
+        type="point"
+        light="intensity: 1; color: #ffffff"
+        position="-13.77122 14.51167 30.02813"
+        rotation="-4.42 -2.21 -6.940000000000001"
+      >
+      </a-light>
+
+      <a-light
+        id="colorChangingLight"
+        light="intensity: 10; type: point; color: #4fd93a"
+        position="-0.34424 -2.59251 -19.31083"
+      ></a-light>
+
+      <a-entity>
+        <button
+      onclick="changeLightColor()"
+      style="
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 999;
+        background-color: transparent;
+        border: 2px solid #fff; /* Cambia el color del borde según tus preferencias */
+        color: #fff; /* Cambia el color del texto según tus preferencias */
+        padding: 10px; /* Ajusta el relleno según tus preferencias */
+      "
+    >
+      Moon color
+    </button>
+
+    <a-entity>
+      <button
+    style="
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      background-color: transparent;
+      border: 1px solid #C2BC76; /* Cambia el color del borde según tus preferencias */
+      color: #C2BC76; /* Cambia el color del texto según tus preferencias */
+      padding: 10px; /* Ajusta el relleno según tus preferencias */
+    "
+  >
+  TONIGHT:  Diva Plavalaguna
+  </button>
+
+  <button
+    style="
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background-color: transparent;
+      border: 1px solid #DB2E28; /* Cambia el color del borde según tus preferencias */
+      color: #DB7358; /* Cambia el color del texto según tus preferencias */
+      padding: 10px; /* Ajusta el relleno según tus preferencias */
+    "
+  >
+  Post Organic Club
+  </button>
+      </a-entity>
+
+      <script>
+        const lightElement = document.getElementById("colorChangingLight");
+        const colorPalette = ["#4fd93a", "#D93BA8", "#3F8395", "#C2BC76"];
+        let currentColorIndex = 0;
+
+        // Function to change light color
+        function changeLightColor() {
+          const nextColor = colorPalette[currentColorIndex];
+          lightElement.setAttribute("light", "color", nextColor);
+          currentColorIndex = (currentColorIndex + 1) % colorPalette.length;
+        }
+      </script>
     </a-scene>
   </body>
 </html>
