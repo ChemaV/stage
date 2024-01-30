@@ -48,6 +48,16 @@
       </a-entity>
 
       <a-entity
+        class="uranus"
+        scale="0.02 0.02 0.02"
+        position="0.63 10 -20"
+        gltf-model="assets/Uranus_1_51118.glb"
+        animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
+        changecolor
+      >
+      </a-entity>
+
+      <a-entity
         class="moon"
         scale="0.02 0.02 0.02"
         position="0.63 15 -20"
@@ -136,7 +146,6 @@
         const colorPalette = ["#4fd93a", "#D93BA8", "#3F8395", "#C2BC76"];
         let currentColorIndex = 0;
 
-        // Function to change light color
         function changeLightColor() {
           const nextColor = colorPalette[currentColorIndex];
           lightElement.setAttribute("light", "color", nextColor);
