@@ -53,8 +53,7 @@
         position="0.63 15 -20"
         gltf-model="https://cdn.glitch.global/feb1a498-6e82-4cbc-88ad-1aa92994aa26/Moon_1_3474.glb?v=1705949402486"
         animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
-        handle-events
-        change-color-on-click
+        changecolor
       >
       </a-entity>
 
@@ -92,9 +91,9 @@
         left: 10px;
         z-index: 999;
         background-color: transparent;
-        border: 2px solid #fff; /* Cambia el color del borde según tus preferencias */
-        color: #fff; /* Cambia el color del texto según tus preferencias */
-        padding: 10px; /* Ajusta el relleno según tus preferencias */
+        border: 2px solid #fff; 
+        color: #fff; 
+        padding: 10px; 
       "
     >
       Moon color
@@ -108,9 +107,9 @@
       right: 20px;
       z-index: 999;
       background-color: transparent;
-      border: 1px solid #C2BC76; /* Cambia el color del borde según tus preferencias */
-      color: #C2BC76; /* Cambia el color del texto según tus preferencias */
-      padding: 10px; /* Ajusta el relleno según tus preferencias */
+      border: 1px solid #C2BC76; 
+      color: #C2BC76; 
+      padding: 10px; 
     "
   >
   TONIGHT:  Diva Plavalaguna
@@ -123,9 +122,9 @@
       left: 20px;
       z-index: 999;
       background-color: transparent;
-      border: 1px solid #DB2E28; /* Cambia el color del borde según tus preferencias */
-      color: #DB7358; /* Cambia el color del texto según tus preferencias */
-      padding: 10px; /* Ajusta el relleno según tus preferencias */
+      border: 1px solid #DB2E28; 
+      color: #DB7358; 
+      padding: 10px; 
     "
   >
   Post Organic Club
@@ -143,48 +142,27 @@
           lightElement.setAttribute("light", "color", nextColor);
           currentColorIndex = (currentColorIndex + 1) % colorPalette.length;
         }
-
-        // Register handle-events component
-        AFRAME.registerComponent('handle-events', {
-          init: function () {
-            var el = this.el;
-            el.addEventListener('mouseenter', function () {
-              console.log("mouseenter");
-            });
-            el.addEventListener('mouseleave', function () {
-              console.log("mouseleave");
-            });
-          }
-        });
-
-        // Register change-color-on-click component
-        AFRAME.registerComponent('change-color-on-click', {
-          init: function () {
-            var el = this.el;
-            el.addEventListener('click', function () {
-              changeMoonColor();
-            });
-          }
-        });
-
-        // Function to change moon color
-        function changeMoonColor() {
-          const moonEntity = document.querySelector('.moon');
-          const newColor = getRandomColor();
-          moonEntity.setAttribute('material', 'color', newColor);
-        }
-
-        // Function to get a random color
-        function getRandomColor() {
-          const letters = '0123456789ABCDEF';
-          let color = '#';
-          for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-          }
-          return color;
-        }
       </script>
+
+<script>
+  AFRAME.registerComponent('handle-events', {
+       init: function () {
+         var el = this.el;
+         console.log(el)  //
+         el.addEventListener('mouseenter', function () {
+           console.log("mouseenter");
+
+         });
+         el.addEventListener('mouseleave', function () {
+             console.log("mouseleave");
+         });
+         el.addEventListener('click', function () {
+             console.log("click");
+             alert(el.getAttribute('data-info'));
+         });
+       }
+    });
+</script>
     </a-scene>
   </body>
 </html>
-
