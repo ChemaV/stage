@@ -16,16 +16,3 @@ Este proyecto es un escenario inmersivo diseñado para conciertos virtuales dond
 - [Three.js](https://threejs.org/): Una biblioteca de JavaScript que facilita el trabajo con gráficos 3D en navegadores web. Ofrece una amplia gama de funciones para crear y manipular objetos 3D, escenas y animaciones. Three.js se utiliza con frecuencia para construir visualizaciones interactivas en 3D y juegos en la web. Three.js es la base de A-frame.
 - [Blender](https://www.blender.org/): Un potente conjunto de herramientas de creación 3D de código abierto que incluye funciones para modelado, animación, renderizado, composición, seguimiento de movimiento, entre otros. La idea es utilizar Blender para crear los objetos que se van a integrar en A-Frame.
 
-## Personalización
-- Puedes personalizar el escenario, avatares y colores editando los archivos relevantes en el código fuente.
-- La música del concierto puede ser modificada o ampliada según las necesidades del evento.
-
-## Colaboración
-¡Estamos abiertos a contribuciones! Si deseas contribuir, por favor sigue los pasos del proceso de solicitud de extracción.
-
-## Licencia
-Este proyecto está bajo la Licencia [MIT](LICENSE).
-
----
-
-¡Espero que encuentres útil esta estructura para tu README! Puedes ajustar y expandir las secciones según las necesidades específicas de tu proyecto. ¡Buena suerte con tus conciertos virtuales! 🎶🕶️
