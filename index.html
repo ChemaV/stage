@@ -2,12 +2,12 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
     <a-scene cursor="rayOrigin: mouse">
-      <div id="info">Description</div>
       <a-camera
-        position="0.45 5 26"
+        position="0.45 5 25"
         camera=""
         rotation=""
         look-controls=""
@@ -48,24 +48,14 @@
       </a-entity>
 
       <a-entity
-        class="uranus"
-        scale="0.02 0.02 0.02"
-        position="0.63 10 -20"
-        gltf-model="assets/Uranus_1_51118.glb"
-        animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
-        changecolor
-      >
-      </a-entity>
-
-      <a-entity
         class="moon"
         scale="0.02 0.02 0.02"
         position="0.63 15 -20"
         gltf-model="https://cdn.glitch.global/feb1a498-6e82-4cbc-88ad-1aa92994aa26/Moon_1_3474.glb?v=1705949402486"
         animation="property: rotation; to: 0 -360 0; loop: true; dur: 39900"
         changecolor
-      >
-      </a-entity>
+        event-set__scroll="_event: scroll; _target: #moon; components.changecolor.changeLightColor"
+      ></a-entity>
 
       <a-entity
         class="stars"
@@ -94,22 +84,21 @@
 
       <a-entity>
         <button
-      onclick="changeLightColor()"
-      style="
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        z-index: 999;
-        background-color: transparent;
-        border: 2px solid #fff; 
-        color: #fff; 
-        padding: 10px; 
-      "
-    >
-      Moon color
-    </button>
-
-    <a-entity>
+          onclick="changeLightColor()"
+          style="
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 999;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 10px;
+          "
+        >
+          Moon color
+        </button>
+      </a-entity>
       <button
     style="
       position: absolute;
@@ -154,23 +143,16 @@
       </script>
 
 <script>
-  AFRAME.registerComponent('handle-events', {
-       init: function () {
-         var el = this.el;
-         console.log(el)  //
-         el.addEventListener('mouseenter', function () {
-           console.log("mouseenter");
 
-         });
-         el.addEventListener('mouseleave', function () {
-             console.log("mouseleave");
-         });
-         el.addEventListener('click', function () {
-             console.log("click");
-             alert(el.getAttribute('data-info'));
-         });
-       }
-    });
+  AFRAME.registerComponent("scroll", {
+    init: function () {
+      this.el.addEventListener("scroll", this.handleScroll.bind(this));
+    },
+    handleScroll: function () {
+      
+      console.log("Scrolled!");
+    },
+  });
 </script>
     </a-scene>
   </body>
