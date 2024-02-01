@@ -44,6 +44,8 @@
         scale="0.8 0.8 0.8"
         gltf-model="assets/diva_plavalagoona.glb"
         sound="src: url(sounds/The Diva Dance - Éric Serra.mp3); autoplay: true"
+        id="divaSound"
+        toggle-sound 
       >
       </a-entity>
 
@@ -72,7 +74,7 @@
         type="point"
         light="intensity: 1; color: #ffffff"
         position="-13.77122 14.51167 30.02813"
-        rotation="-4.42 -2.21 -6.940000000000001"
+        rotation="-4.42 -2.20 -6.940000000000001"
       >
       </a-light>
 
@@ -102,7 +104,7 @@
       <button
     style="
       position: absolute;
-      top: 20px;
+      top: 21px;
       right: 20px;
       z-index: 999;
       background-color: transparent;
@@ -128,6 +130,24 @@
   >
   Post Organic Club
   </button>
+<!-- 
+  <a-entity>
+    <button
+      style="
+        position: absolute;
+        bottom: 60px;
+        left: 10px;
+        z-index: 999;
+        background-color: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        padding: 10px;
+        
+      "
+    >
+     Play / Pause
+    </button> -->
+  </a-entity>
       </a-entity>
 
       <script>
@@ -143,14 +163,16 @@
       </script>
 
 <script>
-
-  AFRAME.registerComponent("scroll", {
+  AFRAME.registerComponent("toggle-sound", {
     init: function () {
-      this.el.addEventListener("scroll", this.handleScroll.bind(this));
-    },
-    handleScroll: function () {
-      
-      console.log("Scrolled!");
+      const divaSound = document.querySelector("#divaSound");
+      this.el.addEventListener("click", function () {
+        if (divaSound.components.sound.paused) {
+          divaSound.components.sound.playSound();
+        } else {
+          divaSound.components.sound.pauseSound();
+        }
+      });
     },
   });
 </script>
